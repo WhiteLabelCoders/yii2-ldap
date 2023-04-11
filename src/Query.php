@@ -82,6 +82,10 @@ class Query extends Component implements QueryInterface
      */
     public function execute($db = null)
     {
+        if(null === $this->limit) {
+            $this->limit = -1;
+        }
+
         if ($db === null) {
             $db = Yii::$app->get('ldap');
         }
